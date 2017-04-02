@@ -13,6 +13,7 @@ export default class extends Component {
     this.toggleTodo = this.toggleTodo.bind(this)
     this.destroyTodo = this.destroyTodo.bind(this)
     this.toggleAll = this.toggleAll.bind(this)
+    this.clearCompleted = this.clearCompleted.bind(this)
   }
 
   handleChange(event) {
@@ -56,6 +57,12 @@ export default class extends Component {
     })
   }
 
+  clearCompleted() {
+    this.setState({
+      todos: this.state.todos.filter(todo => !todo.completed)
+    })
+  }
+
   render() {
     return (
       <div className="todoapp">
@@ -63,7 +70,7 @@ export default class extends Component {
         {this.state.todos.length > 0 &&
           <div>
             <Todos todos={this.state.todos} toggleTodo={this.toggleTodo} destroyTodo={this.destroyTodo} toggleAll={this.toggleAll} />
-            <Footer count={this.state.todos.filter(todo => !todo.completed).length} />
+            <Footer count={this.state.todos.filter(todo => !todo.completed).length} clearCompleted={this.clearCompleted} />
           </div>
         }
       </div>
