@@ -70,7 +70,7 @@ export default class extends Component {
         {this.state.todos.length > 0 &&
           <div>
             <Todos todos={this.state.todos} toggleTodo={this.toggleTodo} destroyTodo={this.destroyTodo} toggleAll={this.toggleAll} />
-            <Footer count={this.state.todos.filter(todo => !todo.completed).length} total={this.state.todos.length} clearCompleted={this.clearCompleted} />
+            <Footer todos={this.state.todos} clearCompleted={this.clearCompleted} />
           </div>
         }
       </div>
