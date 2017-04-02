@@ -3,6 +3,11 @@ import Footer from "../components/footer"
 import {clearCompleted} from "../actions"
 
 export default class extends Component {
+  static propTypes = {
+    todos: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
+    dispatch: React.PropTypes.func.isRequired,
+  }
+
   constructor(props) {
     super(props)
     this.handleClearCompleted = this.handleClearCompleted.bind(this)

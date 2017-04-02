@@ -1,6 +1,6 @@
 import React from "react"
 
-export default function ({value, onChange, onKeyPress}) {
+export default function Header({value, onChange, onKeyPress}) {
   return (
     <header className="header">
       <h1>todos</h1>
@@ -13,4 +13,10 @@ export default function ({value, onChange, onKeyPress}) {
       />
     </header>
   )
+}
+
+Header.propTypes = {
+  value: React.PropTypes.string.isRequired,
+  onChange: React.PropTypes.func.isRequired,
+  onKeyPress: React.PropTypes.func.isRequired,
 }

@@ -1,6 +1,6 @@
 import React from "react"
 
-export default function ({todo, toggleTodo, destroyTodo}) {
+export default function TodoItem({todo, toggleTodo, destroyTodo}) {
   return (
     <li className={todo.completed ? "completed" : ""}>
       <div className="view">
@@ -10,4 +10,14 @@ export default function ({todo, toggleTodo, destroyTodo}) {
       </div>
     </li>
   )
+}
+
+TodoItem.propTypes = {
+  todo: React.PropTypes.shape({
+    completed: React.PropTypes.bool.isRequired,
+    title: React.PropTypes.string.isRequired,
+    id: React.PropTypes.number.isRequired,
+  }).isRequired,
+  toggleTodo: React.PropTypes.func.isRequired,
+  destroyTodo: React.PropTypes.func.isRequired,
 }

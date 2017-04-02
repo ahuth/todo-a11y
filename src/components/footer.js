@@ -1,7 +1,7 @@
 import React from "react"
 import pluralize from "../utils/pluralize"
 
-export default function ({onClearClick, count, showClear}) {
+export default function Footer({onClearClick, count, showClear}) {
   return (
     <footer className="footer">
       <span className="todo-count">{count} {pluralize("item", count)} left</span>
@@ -10,4 +10,10 @@ export default function ({onClearClick, count, showClear}) {
       }
     </footer>
   )
+}
+
+Footer.propTypes = {
+  onClearClick: React.PropTypes.func.isRequired,
+  count: React.PropTypes.number.isRequired,
+  showClear: React.PropTypes.bool,
 }

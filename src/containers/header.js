@@ -4,6 +4,11 @@ import {ENTER} from "../utils/key-codes"
 import {changeHeader, addTodo} from "../actions"
 
 export default class extends Component {
+  static propTypes = {
+    value: React.PropTypes.string.isRequired,
+    dispatch: React.PropTypes.func.isRequired,
+  }
+
   constructor(props) {
     super(props)
     this.handleChange = this.handleChange.bind(this)
