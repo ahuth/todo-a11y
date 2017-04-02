@@ -6,16 +6,23 @@ export default class extends Component {
     super(props)
     this.state = {value: ""}
     this.handleChange = this.handleChange.bind(this)
+    this.handleHeaderKeypress = this.handleHeaderKeyPress.bind(this)
   }
 
   handleChange(event) {
     this.setState({value: event.target.value})
   }
 
+  handleHeaderKeyPress(event) {
+    if (event.charCode === 13) {
+      console.log(event.target.value)
+    }
+  }
+
   render() {
     return (
       <div className="todoapp">
-        <Header value={this.state.value} onChange={this.handleChange} />
+        <Header value={this.state.value} onChange={this.handleChange} onKeyPress={this.handleHeaderKeyPress} />
       </div>
     )
   }
