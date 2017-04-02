@@ -1,11 +1,11 @@
 import React from "react"
 
-export default function ({title, completed}) {
+export default function ({todo, toggleTodo}) {
   return (
-    <li className={completed ? "completed" : ""}>
+    <li className={todo.completed ? "completed" : ""}>
       <div className="view">
-        <input className="toggle" type="checkbox" checked={completed} />
-        <label>{title}</label>
+        <input className="toggle" type="checkbox" checked={todo.completed} onChange={() => toggleTodo(todo.id)} />
+        <label>{todo.title}</label>
       </div>
     </li>
   )
