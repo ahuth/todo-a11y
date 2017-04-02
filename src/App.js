@@ -53,7 +53,7 @@ export default class extends Component {
 
   destroyTodo(id) {
     this.setState({
-      todos: this.state.todos.filter((todo) => todo.id !== id)
+      todos: this.state.todos.filter(todo => todo.id !== id)
     })
   }
 
