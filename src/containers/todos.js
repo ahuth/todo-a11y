@@ -26,9 +26,9 @@ export default class extends Component {
     return (
       <Todos
         todos={this.props.todos}
-        toggleTodo={this.handleToggleTodo}
-        destroyTodo={this.handleDestroyTodo}
-        toggleAll={this.handleToggleAll}
+        onToggleClick={this.handleToggleTodo}
+        onDestroyClick={this.handleDestroyTodo}
+        onToggleAllClick={this.handleToggleAll}
       />
     )
   }
