@@ -1,7 +1,7 @@
 import React, {Component} from "react"
-import Header from "./header"
-import Footer from "./footer"
-import Todos from "./todos"
+import Header from "../components/header"
+import Footer from "../components/footer"
+import Todos from "../components/todos"
 import store from "../store";
 import {ENTER} from "../utils/key-codes"
 import {toggleAll, clearCompleted, changeHeader, addTodo, destroyTodo, toggleTodo} from "../actions"
