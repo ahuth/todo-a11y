@@ -2,7 +2,7 @@ import React, {Component} from "react"
 import Header from "./header"
 import Footer from "./footer"
 import Todos from "./todos"
-import {ENTER} from "./key-codes"
+import {ENTER} from "../key-codes"
 
 export default class extends Component {
   constructor(props) {
