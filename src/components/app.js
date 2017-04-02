@@ -2,65 +2,59 @@ import React, {Component} from "react"
 import Header from "./header"
 import Footer from "./footer"
 import Todos from "./todos"
+import store from "../store";
 import {ENTER} from "../utils/key-codes"
+import {toggleAll, clearCompleted, changeHeader, addTodo, destroyTodo, toggleTodo} from "../actions"
 
 export default class extends Component {
   constructor(props) {
     super(props)
-    this.state = {value: "", todos: []}
+    this.state = store.getState()
+    this.onChange = this.onChange.bind(this)
     this.handleChange = this.handleChange.bind(this)
     this.handleHeaderKeyPress = this.handleHeaderKeyPress.bind(this)
-    this.toggleTodo = this.toggleTodo.bind(this)
-    this.destroyTodo = this.destroyTodo.bind(this)
-    this.toggleAll = this.toggleAll.bind(this)
-    this.clearCompleted = this.clearCompleted.bind(this)
+    this.handleToggleTodo = this.handleToggleTodo.bind(this)
+    this.handleDestroyTodo = this.handleDestroyTodo.bind(this)
+    this.handleToggleAll = this.handleToggleAll.bind(this)
+    this.handleClearCompleted = this.handleClearCompleted.bind(this)
+  }
+
+  componentWillMount() {
+    this.unsubscribe = store.subscribe(this.onChange);
+  }
+
+  componentWillUnmount() {
+    this.unsubscribe()
+  }
+
+  onChange() {
+    this.setState(store.getState())
   }
 
   handleChange(event) {
-    this.setState({value: event.target.value})
+    store.dispatch(changeHeader(event.target.value))
   }
 
   handleHeaderKeyPress(event) {
     if (event.charCode === ENTER) {
-      this.setState({
-        todos: this.state.todos.concat([{
-          title: event.target.value,
-          completed: false,
-          id: this.state.todos.reduce((maxId, todo) => Math.max(todo.id, maxId), -1) + 1
-        }]),
-        value: ""
-      })
+      store.dispatch(addTodo(event.target.value))
     }
   }
 
-  toggleTodo(id) {
-    this.setState({
-      todos: this.state.todos.map((todo) => {
-        if (todo.id !== id) {
-          return todo
-        }
-        return Object.assign({}, todo, {completed: !todo.completed})
-      })
-    })
+  handleToggleTodo(id) {
+    store.dispatch(toggleTodo(id))
   }
 
-  toggleAll() {
-    const allCompleted = this.state.todos.every(todo => todo.completed)
-    this.setState({
-      todos: this.state.todos.map(todo => Object.assign({}, todo, {completed: !allCompleted}))
-    })
+  handleToggleAll() {
+    store.dispatch(toggleAll())
   }
 
-  destroyTodo(id) {
-    this.setState({
-      todos: this.state.todos.filter(todo => todo.id !== id)
-    })
+  handleDestroyTodo(id) {
+    store.dispatch(destroyTodo(id))
   }
 
-  clearCompleted() {
-    this.setState({
-      todos: this.state.todos.filter(todo => !todo.completed)
-    })
+  handleClearCompleted() {
+    store.dispatch(clearCompleted())
   }
 
   render() {
@@ -69,8 +63,8 @@ export default class extends Component {
         <Header value={this.state.value} onChange={this.handleChange} onKeyPress={this.handleHeaderKeyPress} />
         {this.state.todos.length > 0 &&
           <div>
-            <Todos todos={this.state.todos} toggleTodo={this.toggleTodo} destroyTodo={this.destroyTodo} toggleAll={this.toggleAll} />
-            <Footer todos={this.state.todos} clearCompleted={this.clearCompleted} />
+            <Todos todos={this.state.todos} toggleTodo={this.handleToggleTodo} destroyTodo={this.handleDestroyTodo} toggleAll={this.handleToggleAll} />
+            <Footer todos={this.state.todos} clearCompleted={this.handleClearCompleted} />
           </div>
         }
       </div>
