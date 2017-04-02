@@ -6,7 +6,7 @@ export default function ({todos}) {
     <section className="main">
       <input className="toggle-all" type="checkbox" />
       <ul className="todo-list">
-        {todos.map(({title, completed}, index) => <TodoItem key={index} title={title} completed={completed} />)}
+        {todos.map(({id, title, completed}) => <TodoItem key={id} title={title} completed={completed} />)}
       </ul>
     </section>
   )

@@ -19,7 +19,11 @@ export default class extends Component {
   handleHeaderKeyPress(event) {
     if (event.charCode === ENTER) {
       this.setState({
-        todos: this.state.todos.concat([{title: event.target.value, completed: false}]),
+        todos: this.state.todos.concat([{
+          title: event.target.value,
+          completed: false,
+          id: this.state.todos.reduce((maxId, todo) => Math.max(todo.id, maxId), -1) + 1
+        }]),
         value: ""
       })
     }
