@@ -13,10 +13,13 @@ export default class extends Component {
   }
 
   render() {
+    const uncompletedCount = this.props.todos.filter(todo => !todo.completed).length
+    const areCompleted = uncompletedCount < this.props.todos.length
     return (
       <Footer
-        todos={this.props.todos}
-        clearCompleted={this.handleClearCompleted}
+        onClearClick={this.handleClearCompleted}
+        count={uncompletedCount}
+        showClear={areCompleted}
       />
     )
   }
