@@ -11,6 +11,7 @@ export default class extends Component {
     this.handleChange = this.handleChange.bind(this)
     this.handleHeaderKeyPress = this.handleHeaderKeyPress.bind(this)
     this.toggleTodo = this.toggleTodo.bind(this)
+    this.destroyTodo = this.destroyTodo.bind(this)
   }
 
   handleChange(event) {
@@ -41,13 +42,19 @@ export default class extends Component {
     })
   }
 
+  destroyTodo(id) {
+    this.setState({
+      todos: this.state.todos.filter((todo) => todo.id !== id)
+    })
+  }
+
   render() {
     return (
       <div className="todoapp">
         <Header value={this.state.value} onChange={this.handleChange} onKeyPress={this.handleHeaderKeyPress} />
         {this.state.todos.length > 0 &&
           <div>
-            <Todos todos={this.state.todos} toggleTodo={this.toggleTodo} />
+            <Todos todos={this.state.todos} toggleTodo={this.toggleTodo} destroyTodo={this.destroyTodo} />
             <Footer count={this.state.todos.filter(todo => !todo.completed).length} />
           </div>
         }
