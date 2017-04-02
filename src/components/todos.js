@@ -1,7 +1,7 @@
 import React from "react"
 import TodoItem from "./todo-item"
 
-export default function ({todos, onToggleClick, onDestroyClick, onToggleAllClick}) {
+export default function Todos({todos, onToggleClick, onDestroyClick, onToggleAllClick}) {
   return (
     <section className="main">
       <input className="toggle-all" type="checkbox" checked={todos.every(todo => todo.completed)} />
@@ -13,4 +13,11 @@ export default function ({todos, onToggleClick, onDestroyClick, onToggleAllClick
       </ul>
     </section>
   )
+}
+
+Todos.propTypes = {
+  todos: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
+  onToggleClick: React.PropTypes.func.isRequired,
+  onDestroyClick: React.PropTypes.func.isRequired,
+  onToggleAllClick: React.PropTypes.func.isRequired,
 }
