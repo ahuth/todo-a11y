@@ -1,5 +1,6 @@
 import React, {Component} from "react"
 import Header from "./header"
+import {ENTER} from "./key-codes"
 
 export default class extends Component {
   constructor(props) {
@@ -14,7 +15,7 @@ export default class extends Component {
   }
 
   handleHeaderKeyPress(event) {
-    if (event.charCode === 13) {
+    if (event.charCode === ENTER) {
       console.log(event.target.value)
     }
   }
