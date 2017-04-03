@@ -1,5 +1,5 @@
-import value from "../value"
-import {addTodo, changeHeader} from "../../actions"
+import value from "reducers/value"
+import {addTodo, changeHeader} from "actions"
 
 describe("reducers value", () => {
   const state = "foobar"
