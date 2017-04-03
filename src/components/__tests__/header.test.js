@@ -3,7 +3,8 @@ import Header from "components/header"
 import {shallow} from "enzyme"
 
 const render = (options = {}) => {
-  const defaults = {value: "foobaz", onChange: () => {}, onKeyPress: () => {}}
+  const func = () => {}
+  const defaults = {value: "foobaz", onChange: func, onKeyPress: func}
   const props = Object.assign(defaults, options)
   return shallow(
     <Header {...props} />

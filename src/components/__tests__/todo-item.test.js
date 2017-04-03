@@ -3,8 +3,9 @@ import TodoItem from "components/todo-item"
 import {shallow} from "enzyme"
 
 const render = (options = {}) => {
+  const func = () => {}
   const todo = {id: 666, title: "Get coffee", completed: true}
-  const defaults = {todo: todo, toggleTodo: () => {}, destroyTodo: () => {}}
+  const defaults = {todo: todo, toggleTodo: func, destroyTodo: func}
   const props = Object.assign(defaults, options)
   return shallow(
     <TodoItem {...props} />
