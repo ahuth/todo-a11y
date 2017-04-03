@@ -3,12 +3,7 @@ import Header from "../components/header"
 import {ENTER} from "../utils/key-codes"
 import {changeHeader, addTodo} from "../actions"
 
-export default class extends Component {
-  static propTypes = {
-    value: React.PropTypes.string.isRequired,
-    dispatch: React.PropTypes.func.isRequired,
-  }
-
+export default class HeaderContainer extends Component {
   constructor(props) {
     super(props)
     this.handleChange = this.handleChange.bind(this)
@@ -34,4 +29,9 @@ export default class extends Component {
       />
     )
   }
+}
+
+HeaderContainer.propTypes = {
+  value: React.PropTypes.string.isRequired,
+  dispatch: React.PropTypes.func.isRequired,
 }

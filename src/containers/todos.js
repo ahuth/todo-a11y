@@ -2,12 +2,7 @@ import React, {Component} from "react"
 import Todos from "../components/todos"
 import {toggleAll, destroyTodo, toggleTodo} from "../actions"
 
-export default class extends Component {
-  static propTypes = {
-    todos: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
-    dispatch: React.PropTypes.func.isRequired,
-  }
-
+export default class TodosContainer extends Component {
   constructor(props) {
     super(props)
     this.handleToggleTodo = this.handleToggleTodo.bind(this)
@@ -37,4 +32,9 @@ export default class extends Component {
       />
     )
   }
+}
+
+TodosContainer.propTypes = {
+  todos: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
+  dispatch: React.PropTypes.func.isRequired,
 }

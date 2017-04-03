@@ -4,7 +4,7 @@ import FooterContainer from "../containers/footer"
 import TodosContainer from "../containers/todos"
 import store from "../store"
 
-export default class extends Component {
+export default class App extends Component {
   constructor(props) {
     super(props)
     this.state = store.getState()
