@@ -11,7 +11,7 @@ const render = (options = {}) => {
   )
 }
 
-describe("components todo-item", () => {
+describe("components <TodoItem />", () => {
   beforeEach(function () {
     this.component = render()
   })

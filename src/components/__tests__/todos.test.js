@@ -11,7 +11,7 @@ const render = (options = {}) => {
   )
 }
 
-describe("components todos", () => {
+describe("components <Todos />", () => {
   describe("the toggle-all checkbox", () => {
     const checkbox = component => component.find(".toggle-all")
 

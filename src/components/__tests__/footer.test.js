@@ -10,7 +10,7 @@ const render = (options = {}) => {
   )
 }
 
-describe("components footer", () => {
+describe("components <Footer />", () => {
   describe("when showClear is false", () => {
     beforeEach(function () {
       this.component = render({showClear: false})

@@ -11,7 +11,7 @@ const render = (options = {}) => {
   )
 }
 
-describe("components app", () => {
+describe("components <App />", () => {
   describe("when showBody is false", () => {
     beforeEach(function () {
       this.component = render({showBody: false})

@@ -10,7 +10,7 @@ const render = (options = {}) => {
   )
 }
 
-describe("components header", () => {
+describe("components <Header />", () => {
   beforeEach(function () {
     this.component = render()
   })
