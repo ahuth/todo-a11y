@@ -2,7 +2,7 @@ import React, {Component} from "react"
 import HeaderContainer from "../containers/header"
 import FooterContainer from "../containers/footer"
 import TodosContainer from "../containers/todos"
-import store from "../store";
+import store from "../store"
 
 export default class extends Component {
   constructor(props) {
