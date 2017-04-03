@@ -1,5 +1,5 @@
 import React from "react"
-import pluralize from "../utils/pluralize"
+import pluralize from "utils/pluralize"
 
 export default function Footer({onClearClick, count, showClear}) {
   return (
