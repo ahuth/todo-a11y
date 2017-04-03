@@ -1,5 +1,5 @@
 import initialState from "./initial-state";
-import {actionTypes} from "constants";
+import {actionTypes} from "../constants";
 
 export default function (state = initialState.value, action) {
   switch (action.type) {
