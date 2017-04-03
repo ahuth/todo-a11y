@@ -1,31 +1,20 @@
-import React, {Component} from "react"
 import Footer from "../components/footer"
 import {clearCompleted} from "../actions"
+import {connect} from "react-redux"
 
-export default class FooterContainer extends Component {
-  constructor(props) {
-    super(props)
-    this.handleClearCompleted = this.handleClearCompleted.bind(this)
-  }
-
-  handleClearCompleted() {
-    this.props.dispatch(clearCompleted())
-  }
-
-  render() {
-    const uncompletedCount = this.props.todos.filter(todo => !todo.completed).length
-    const areCompleted = uncompletedCount < this.props.todos.length
-    return (
-      <Footer
-        onClearClick={this.handleClearCompleted}
-        count={uncompletedCount}
-        showClear={areCompleted}
-      />
-    )
+function mapStateToProps(state) {
+  const uncompletedCount = state.todos.filter(todo => !todo.completed).length
+  const areCompleted = uncompletedCount < state.todos.length
+  return {
+    count: uncompletedCount,
+    showClear: areCompleted
   }
 }
 
-FooterContainer.propTypes = {
-  todos: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
-  dispatch: React.PropTypes.func.isRequired,
+function mapDispatchToProps(dispatch) {
+  return {
+    onClearClick: () => { dispatch(clearCompleted()) }
+  }
 }
+
+export default connect(mapStateToProps, mapDispatchToProps)(Footer)

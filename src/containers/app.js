@@ -1,39 +1,31 @@
-import React, {Component} from "react"
+import React from "react"
 import HeaderContainer from "../containers/header"
 import FooterContainer from "../containers/footer"
 import TodosContainer from "../containers/todos"
-import store from "../store"
+import {connect} from "react-redux"
 
-export default class App extends Component {
-  constructor(props) {
-    super(props)
-    this.state = store.getState()
-    this.onChange = this.onChange.bind(this)
-  }
+function App({showBody}) {
+  return (
+    <div className="todoapp">
+      <HeaderContainer />
+      {showBody &&
+        <div>
+          <TodosContainer />
+          <FooterContainer />
+        </div>
+      }
+    </div>
+  )
+}
 
-  componentWillMount() {
-    this.unsubscribe = store.subscribe(this.onChange);
-  }
+App.propTypes = {
+  showBody: React.PropTypes.bool,
+}
 
-  componentWillUnmount() {
-    this.unsubscribe()
-  }
-
-  onChange() {
-    this.setState(store.getState())
-  }
-
-  render() {
-    return (
-      <div className="todoapp">
-        <HeaderContainer value={this.state.value} dispatch={store.dispatch} />
-        {this.state.todos.length > 0 &&
-          <div>
-            <TodosContainer todos={this.state.todos} dispatch={store.dispatch} />
-            <FooterContainer todos={this.state.todos} dispatch={store.dispatch} />
-          </div>
-        }
-      </div>
-    )
+function mapStateToProps(state) {
+  return {
+    showBody: state.todos.length > 0,
   }
 }
+
+export default connect(mapStateToProps)(App)

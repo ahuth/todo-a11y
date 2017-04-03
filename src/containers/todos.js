@@ -1,40 +1,19 @@
-import React, {Component} from "react"
 import Todos from "../components/todos"
 import {toggleAll, destroyTodo, toggleTodo} from "../actions"
+import {connect} from "react-redux"
 
-export default class TodosContainer extends Component {
-  constructor(props) {
-    super(props)
-    this.handleToggleTodo = this.handleToggleTodo.bind(this)
-    this.handleDestroyTodo = this.handleDestroyTodo.bind(this)
-    this.handleToggleAll = this.handleToggleAll.bind(this)
-  }
-
-  handleToggleTodo(id) {
-    this.props.dispatch(toggleTodo(id))
-  }
-
-  handleToggleAll() {
-    this.props.dispatch(toggleAll())
-  }
-
-  handleDestroyTodo(id) {
-    this.props.dispatch(destroyTodo(id))
-  }
-
-  render() {
-    return (
-      <Todos
-        todos={this.props.todos}
-        onToggleClick={this.handleToggleTodo}
-        onDestroyClick={this.handleDestroyTodo}
-        onToggleAllClick={this.handleToggleAll}
-      />
-    )
+function mapStateToProps(state) {
+  return {
+    todos: state.todos,
   }
 }
 
-TodosContainer.propTypes = {
-  todos: React.PropTypes.arrayOf(React.PropTypes.object).isRequired,
-  dispatch: React.PropTypes.func.isRequired,
+function mapDispatchToProps(dispatch) {
+  return {
+    onDestroyClick: (id) => { dispatch(destroyTodo(id)) },
+    onToggleAllClick: () => { dispatch(toggleAll()) },
+    onToggleClick: (id) => { dispatch(toggleTodo(id)) },
+  }
 }
+
+export default connect(mapStateToProps, mapDispatchToProps)(Todos)
