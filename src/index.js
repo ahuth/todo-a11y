@@ -4,6 +4,7 @@ import App from "containers/app"
 import store from "./store"
 import {Provider} from "react-redux"
 import "todomvc-app-css/index.css"
+import "index.css"
 
 ReactDOM.render(
   <Provider store={store}>

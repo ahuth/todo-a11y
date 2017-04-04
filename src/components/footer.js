@@ -6,7 +6,7 @@ export default function Footer({onClearClick, count, showClear}) {
     <footer className="footer">
       <span className="todo-count">{count} {pluralize("item", count)} left</span>
       {showClear &&
-        <button className="clear-completed" onClick={onClearClick}>Clear completed</button>
+        <button className="clear-completed hand" onClick={onClearClick}>Clear completed</button>
       }
     </footer>
   )
