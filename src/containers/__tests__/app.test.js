@@ -1,6 +1,5 @@
 import React from "react"
 import App from "containers/app"
-import AppComponent from "components/app"
 import {createMockStore} from "redux-test-utils"
 import {shallow} from "enzyme"
 
@@ -18,9 +17,7 @@ describe("containers <App />", () => {
     })
 
     it("does not show the body", function () {
-      expect(this.component.matchesElement(
-        <AppComponent showBody={false} />
-      )).toBe(true)
+      expect(this.component.prop("showBody")).toEqual(false)
     })
   })
 
@@ -32,9 +29,7 @@ describe("containers <App />", () => {
     })
 
     it("shows the body", function () {
-      expect(this.component.matchesElement(
-        <AppComponent showBody={true} />
-      )).toBe(true)
+      expect(this.component.prop("showBody")).toEqual(true)
     })
   })
 })
