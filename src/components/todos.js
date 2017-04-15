@@ -5,7 +5,7 @@ export default function Todos({todos, onToggleClick, onDestroyClick, onToggleAll
   return (
     <section className="main">
       <input className="toggle-all" type="checkbox" checked={todos.every(todo => todo.completed)} />
-      <label className="hand" onClick={onToggleAllClick}></label>
+      <button className="hand" onClick={onToggleAllClick}>❯</button>
       <ul className="todo-list">
         {todos.map((todo) => {
           return <TodoItem key={todo.id} todo={todo} toggleTodo={onToggleClick} destroyTodo={onDestroyClick} />
