@@ -21,3 +21,7 @@
 .toggle-all:checked + button {
 	color: #737373;
 }
+
+.todo-list li .toggle {
+  opacity: 1;
+}
