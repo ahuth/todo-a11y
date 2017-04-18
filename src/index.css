@@ -25,3 +25,16 @@
 .todo-list li .toggle {
   opacity: 1;
 }
+
+.todo-list li .destroy {
+  display: block;
+}
+
+.todo-list li .destroy:after {
+  content: ''
+}
+
+.todo-list li .destroy:hover:after,
+.todo-list li .destroy:focus:after {
+  content: '×'
+}
