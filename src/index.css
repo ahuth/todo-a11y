@@ -6,19 +6,27 @@
   outline: 5px auto -webkit-focus-ring-color;
 }
 
-.toggle-all + button {
-	width: 70px;
-	height: 38px;
+.toggle-all {
+	width: 60px;
+	height: 34px;
 	font-size: 0;
 	position: absolute;
 	top: -52px;
 	left: -13px;
-  font-size: 22px;
-	color: #e6e6e6;
+	-webkit-transform: rotate(90deg);
 	transform: rotate(90deg);
+  opacity: 1;
+  appearance: none;
 }
 
-.toggle-all:checked + button {
+.toggle-all:before {
+	content: '❯';
+	font-size: 22px;
+	color: #e6e6e6;
+	padding: 10px 27px 10px 27px;
+}
+
+.toggle-all:checked:before {
 	color: #737373;
 }
 
