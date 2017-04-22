@@ -5,9 +5,19 @@ export default function TodoItem({todo, toggleTodo, destroyTodo}) {
   return (
     <li className={todo.completed ? "completed" : ""}>
       <div className="view">
-        <input className="toggle hand" type="checkbox" checked={todo.completed} onChange={() => toggleTodo(todo.id)} aria-labelledby={`toggle-item-label ${titleLabelId}`} />
+        <input
+          className="toggle hand"
+          type="checkbox"
+          checked={todo.completed}
+          onChange={() => toggleTodo(todo.id)}
+          aria-labelledby={`toggle-item-label ${titleLabelId}`}
+        />
         <label id={titleLabelId}>{todo.title}</label>
-        <button className="destroy hand" onClick={() => destroyTodo(todo.id)} aria-labelledby={`destroy-item-label ${titleLabelId}`}></button>
+        <button
+          className="destroy hand"
+          onClick={() => destroyTodo(todo.id)}
+          aria-labelledby={`destroy-item-label ${titleLabelId}`}>
+        </button>
       </div>
     </li>
   )
