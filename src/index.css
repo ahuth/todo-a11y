@@ -6,6 +6,18 @@
   clip: rect(1px, 1px, 1px, 1px);
 }
 
+h1 {
+  color: inherit !important;
+}
+
+footer {
+  color: inherit !important;
+}
+
+*::placeholder {
+  color: darkGrey !important;
+}
+
 .hand:hover {
   cursor: pointer;
 }
@@ -36,6 +48,10 @@
 
 .toggle-all:checked:before {
 	color: #737373;
+}
+
+.todo-list li .toggle:checked + label {
+  color: darkGrey !important;
 }
 
 .todo-list li .toggle {
