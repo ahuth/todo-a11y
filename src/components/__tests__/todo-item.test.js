@@ -22,7 +22,7 @@ describe("components <TodoItem />", () => {
       <li>
         <div>
           <input type="checkbox" checked={true} />
-          <label><span>Toggle</span>Get coffee</label>
+          <label>Get coffee</label>
           <button></button>
         </div>
       </li>

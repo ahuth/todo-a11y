@@ -1,12 +1,12 @@
 import React from "react"
 
 export default function TodoItem({todo, toggleTodo, destroyTodo}) {
-  const inputId = `toggle-log-${todo.id}`
+  const titleLabelId = `log-${todo.id}`
   return (
     <li className={todo.completed ? "completed" : ""}>
       <div className="view">
-        <input className="toggle hand" type="checkbox" checked={todo.completed} onChange={() => toggleTodo(todo.id)} id={inputId} />
-        <label htmlFor={inputId}><span className="visually-hidden">Toggle</span>{todo.title}</label>
+        <input className="toggle hand" type="checkbox" checked={todo.completed} onChange={() => toggleTodo(todo.id)} aria-labelledby={`toggle-item-label ${titleLabelId}`} />
+        <label id={titleLabelId}>{todo.title}</label>
         <button className="destroy hand" onClick={() => destroyTodo(todo.id)}></button>
       </div>
     </li>
