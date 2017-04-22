@@ -12,6 +12,7 @@ export default function Todos({todos, onToggleClick, onDestroyClick, onToggleAll
       </ul>
       <span hidden id="toggle-all-label">Toggle All</span>
       <span hidden id="toggle-item-label">Toggle</span>
+      <span hidden id="destroy-item-label">Destroy</span>
     </section>
   )
 }
