@@ -4,11 +4,7 @@ import TodoItem from "./todo-item"
 export default function Todos({todos, onToggleClick, onDestroyClick, onToggleAllClick}) {
   return (
     <section className="main">
-      <input
-        className="toggle-all hand"
-        type="checkbox"
-        checked={todos.every(todo => todo.completed)}
-      />
+      <input className="toggle-all hand" type="checkbox" checked={todos.every(todo => todo.completed)} />
       <label className="hand" onClick={onToggleAllClick}></label>
       <ul className="todo-list">
         {todos.map((todo) => {
