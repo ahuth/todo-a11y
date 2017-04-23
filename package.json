@@ -2,6 +2,7 @@
   "name": "todo-a11y",
   "version": "0.1.0",
   "license": "MIT",
+  "homepage": "https://ahuth.github.io/todo-a11y",
   "dependencies": {
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
@@ -11,6 +12,7 @@
   },
   "devDependencies": {
     "enzyme": "^2.8.0",
+    "gh-pages": "^0.12.0",
     "react-addons-test-utils": "^15.4.2",
     "react-scripts": "0.9.5",
     "redux-test-utils": "^0.1.2"
@@ -19,6 +21,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build"
   }
 }
