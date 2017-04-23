@@ -1,5 +1,5 @@
 import React from "react"
-import Todos from "components/todos"
+import Todos from "../todos"
 import {shallow} from "enzyme"
 
 const render = (options = {}) => {

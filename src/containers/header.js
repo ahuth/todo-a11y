@@ -1,6 +1,6 @@
-import Header from "components/header"
-import {ENTER} from "utils/key-codes"
-import {changeHeader, addTodo} from "actions"
+import Header from "../components/header"
+import {ENTER} from "../utils/key-codes"
+import {changeHeader, addTodo} from "../actions"
 import {connect} from "react-redux"
 
 function mapStateToProps(state) {

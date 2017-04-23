@@ -1,4 +1,4 @@
-import * as reducers from "reducers"
+import * as reducers from "./reducers"
 import {combineReducers, createStore} from "redux"
 
 var root = combineReducers(reducers)

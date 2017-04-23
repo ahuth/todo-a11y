@@ -1,5 +1,5 @@
 import React from "react"
-import App from "containers/app"
+import App from "../app"
 import {createMockStore} from "redux-test-utils"
 import {shallow} from "enzyme"
 
