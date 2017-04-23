@@ -1,7 +1,6 @@
 import React from "react"
 
 export default function TodoItem({todo, toggleTodo, destroyTodo}) {
-  const titleLabelId = `log-${todo.id}`
   return (
     <li className={todo.completed ? "completed" : ""}>
       <div className="view">
@@ -10,13 +9,12 @@ export default function TodoItem({todo, toggleTodo, destroyTodo}) {
           type="checkbox"
           checked={todo.completed}
           onChange={() => toggleTodo(todo.id)}
-          aria-labelledby={`toggle-item-label ${titleLabelId}`}
         />
-        <label id={titleLabelId}>{todo.title}</label>
+        <label>{todo.title}</label>
         <button
           className="destroy hand"
           onClick={() => destroyTodo(todo.id)}
-          aria-labelledby={`destroy-item-label ${titleLabelId}`}>
+        >
         </button>
       </div>
     </li>
