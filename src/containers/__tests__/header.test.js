@@ -1,5 +1,5 @@
 import React from "react"
-import Header from "containers/header"
+import Header from "../header"
 import {createMockStore} from "redux-test-utils"
 import {shallow} from "enzyme"
 

@@ -1,8 +1,8 @@
 import React from "react"
-import App from "components/app"
-import Header from "containers/header"
-import Footer from "containers/footer"
-import Todos from "containers/todos"
+import App from "../app"
+import Header from "../../containers/header"
+import Footer from "../../containers/footer"
+import Todos from "../../containers/todos"
 import {shallow} from "enzyme"
 
 const render = (options = {}) => {

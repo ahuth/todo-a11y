@@ -1,5 +1,5 @@
-import Todos from "components/todos"
-import {toggleAll, destroyTodo, toggleTodo} from "actions"
+import Todos from "../components/todos"
+import {toggleAll, destroyTodo, toggleTodo} from "../actions"
 import {connect} from "react-redux"
 
 function mapStateToProps(state) {

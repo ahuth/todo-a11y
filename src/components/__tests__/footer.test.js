@@ -1,5 +1,5 @@
 import React from "react"
-import Footer from "components/footer"
+import Footer from "../footer"
 import {shallow} from "enzyme"
 
 const render = (options = {}) => {

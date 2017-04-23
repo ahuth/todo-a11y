@@ -1,5 +1,5 @@
-import todos from "reducers/todos"
-import {addTodo, clearCompleted, destroyTodo, toggleAll, toggleTodo} from "actions"
+import todos from "../todos"
+import {addTodo, clearCompleted, destroyTodo, toggleAll, toggleTodo} from "../../actions"
 
 describe("reducers todos", () => {
   describe("for unknown actions", () => {

@@ -1,5 +1,5 @@
 import React from "react"
-import Todos from "containers/todos"
+import Todos from "../todos"
 import {createMockStore} from "redux-test-utils"
 import {shallow} from "enzyme"
 

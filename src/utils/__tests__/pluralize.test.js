@@ -1,4 +1,4 @@
-import pluralize from "utils/pluralize"
+import pluralize from "../pluralize"
 
 describe("pluralize", () => {
   it("pluralizes 0", () => {

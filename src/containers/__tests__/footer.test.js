@@ -1,5 +1,5 @@
 import React from "react"
-import Footer from "containers/footer"
+import Footer from "../footer"
 import {createMockStore} from "redux-test-utils"
 import {shallow} from "enzyme"
 

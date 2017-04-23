@@ -1,5 +1,5 @@
-import Footer from "components/footer"
-import {clearCompleted} from "actions"
+import Footer from "../components/footer"
+import {clearCompleted} from "../actions"
 import {connect} from "react-redux"
 
 function mapStateToProps(state) {
