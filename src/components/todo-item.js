@@ -6,8 +6,7 @@ export default function TodoItem({todo, toggleTodo, destroyTodo}) {
       <div className="view">
         <input className="toggle hand" type="checkbox" checked={todo.completed} onChange={() => toggleTodo(todo.id)} />
         <label>{todo.title}</label>
-        <button className="destroy hand" onClick={() => destroyTodo(todo.id)}>
-        </button>
+        <button className="destroy hand" onClick={() => destroyTodo(todo.id)}></button>
       </div>
     </li>
   )
